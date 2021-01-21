@@ -1,5 +1,14 @@
+importScripts('../pkg/ojibwe_dictsearch.js');
+
+const mwasm = wasm_bindgen('../pkg/ojibwe_dictsearch_bg.wasm');
+const mrawdict = fetch('../data/dictionary.tsv').then(r => r.arrayBuffer())
+
 let dict = null;
-const parseDict = input => input.trimEnd().split('\n').map(line => line.split('\t'));
+
+Promise.all([mwasm, mrawdict]).then(([wasm, rawdict]) => {
+    dict = wasm_bindgen.parse_dict(new Uint8Array(rawdict));
+    startSearch();
+});
 
 let searchOJ = "";
 let searchEN = "";
@@ -13,7 +22,12 @@ function startSearch() {
 function runSearch() {
     searchTriggered = false;
     if (!dict) return;
-    const results = searchDict(dict, searchOJ, searchEN);
+
+    let results = null;
+    if (searchOJ)
+        results = dict.search_oj_js(searchOJ);
+    else
+        results = dict.search_en_js(searchEN);
     postMessage({searchResults: results});
 }
 
@@ -23,10 +37,6 @@ onmessage = e => {
         searchOJ = e.data.oj;
         searchEN = e.data.en;
         startSearch()
-    }
-    else if (e.data.action == 'load') {
-        dict = parseDict(e.data.rawDict);
-        startSearch();
     }
 };
 

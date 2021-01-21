@@ -4,7 +4,7 @@ const searchOJBox = document.getElementById('search-oj');
 const searchENBox = document.getElementById('search-en');
 const resultsBox = document.getElementById('resultslist');
 
-const worker = new Worker('./worker.js');
+const worker = new Worker('js/worker.js');
 
 searchOJBox.oninput = e => {
     searchENBox.value = "";
@@ -36,8 +36,3 @@ worker.onmessage = e => {
     const rows = resultRows(e.data.searchResults);
     render(rows, resultsBox);
 }
-
-fetch('./data/dictionary.tsv').then(async response => {
-    const rawDict = await response.text();
-    worker.postMessage({action: 'load', rawDict: rawDict});
-});
