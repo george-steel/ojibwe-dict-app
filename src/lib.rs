@@ -27,11 +27,11 @@ pub fn parse_dict(rawfile: Box<[u8]>) -> Dictionary {
 
 impl Dictionary {
     pub fn search_en(&self, query: &str) -> Vec<&DictEntry> {
-        self.entries.iter().filter(|entry| entry.en_contains(query)).take(50).collect()
+        self.entries.iter().filter(|entry| entry.en_contains(query)).take(100).collect()
     }
 
     pub fn search_oj(&self, query: &str) -> Vec<&DictEntry> {
-        self.entries.iter().filter(|entry| entry.oj.contains(query)).take(50).collect()
+        self.entries.iter().filter(|entry| entry.oj.contains(query)).take(100).collect()
     }
 }
 

@@ -1,0 +1,45 @@
+main {
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+#searchcontrols {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+#search-oj, #search-en {
+    display: block;
+    flex-grow: 1;
+    padding: 0.5em 0.5em;
+}
+
+#results {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+}
+#results td {
+    margin: 0;
+    padding: 0.25em 0.5em;
+    vertical-align: top;
+}
+
+#results thead {
+    position: sticky;
+}
+
+#resultslist tr:nth-child(odd) {
+    background-color: #0001;
+}
+
+ins.oj-suffix {
+    color: #0008;
+    text-decoration: none;
+}
+
+.en-words > li {
+    display: block;
+}
+
