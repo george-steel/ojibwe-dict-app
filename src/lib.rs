@@ -1,6 +1,9 @@
 use wasm_bindgen::prelude::*;
-use serde::{Serialize};
 use serde_wasm_bindgen::to_value;
+
+mod dictentry;
+
+use dictentry::DictEntry;
 
 #[wasm_bindgen]
 extern "C" {
@@ -8,13 +11,6 @@ extern "C" {
     // `log(..)`
     #[wasm_bindgen(js_namespace = console)]
     fn log(s: &str);
-}
-
-#[derive(Clone, Serialize)]
-pub struct DictEntry {
-    pub meta: String,
-    pub oj: String,
-    pub en: String,
 }
 
 #[wasm_bindgen]
@@ -25,23 +21,13 @@ pub struct Dictionary {
 #[wasm_bindgen]
 pub fn parse_dict(rawfile: Box<[u8]>) -> Dictionary {
     let file = String::from_utf8(rawfile.into_vec()).expect("Invalid utf-8");
-    let mut entries = Vec::new();
-
-    for line in file.lines() {
-        let fields: Vec<&str> = line.split('\t').collect();
-        let entry = DictEntry{
-            meta: String::from(fields[0]),
-            oj: String::from(fields[1]),
-            en: String::from(fields[2]) };
-        entries.push(entry);
-    }
-
+    let entries = dictentry::parse_dict(file);
     Dictionary {entries}
 }
 
 impl Dictionary {
     pub fn search_en(&self, query: &str) -> Vec<&DictEntry> {
-        self.entries.iter().filter(|entry| entry.en.contains(query)).take(50).collect()
+        self.entries.iter().filter(|entry| entry.en_contains(query)).take(50).collect()
     }
 
     pub fn search_oj(&self, query: &str) -> Vec<&DictEntry> {

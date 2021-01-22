@@ -1,4 +1,4 @@
-import {html, render} from 'https://unpkg.com/lit-html?module';
+import {html, render, nothing} from 'https://unpkg.com/lit-html?module';
 
 const searchOJBox = document.getElementById('search-oj');
 const searchENBox = document.getElementById('search-en');
@@ -24,9 +24,9 @@ searchENBox.oninput = e => {
 }
 
 const resultRow = row => html`<tr>
-    <td>${row.meta}</td>
-    <td>${row.oj}</td>
-    <td>${row.en}</td>
+    <td class='oj-meta'>${row.oj.meta}</td>
+    <td class='oj-word'>${row.oj.word}${row.oj.suffix ? html`<ins class='oj-suffix'>${row.oj.suffix}</ins>` : nothing}</td>
+    <td class='en-words'>${row.en.map(s => html`<li>${s}</li>`)}</td>
 </tr>`;
 
 const resultRows = results => html`${results.map(resultRow)}`;
