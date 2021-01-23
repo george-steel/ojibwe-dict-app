@@ -2,6 +2,7 @@ use wasm_bindgen::prelude::*;
 use serde_wasm_bindgen::to_value;
 
 mod dictentry;
+mod fiero;
 
 use dictentry::DictEntry;
 

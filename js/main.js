@@ -25,7 +25,7 @@ searchENBox.oninput = e => {
 
 const resultRow = row => html`<tr>
     <td class='oj-meta'>${row.oj.meta}</td>
-    <td class='oj-word'>${row.oj.word}${row.oj.suffix ? html`<ins class='oj-suffix'>${row.oj.suffix}</ins>` : nothing}</td>
+    <td class='oj-word'>${row.oj.word}${row.oj.suffix ? html`<ins class='oj-suffix'>+${row.oj.suffix}</ins>` : nothing}</td>
     <td class='en-words'>${row.en.map(s => html`<li>${s}</li>`)}</td>
 </tr>`;
 

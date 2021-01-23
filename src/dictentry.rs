@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use serde::{Serialize};
+use crate::fiero::Fiero;
 
 #[derive(Clone, PartialOrd, Ord, PartialEq, Eq, Serialize)]
 pub struct OJWord {
@@ -10,6 +11,8 @@ pub struct OJWord {
 
 #[derive(PartialOrd, Ord, PartialEq, Eq, Serialize)]
 pub struct DictEntry {
+    #[serde(skip)]
+    pub fiero: Vec<Fiero>,
     pub oj: OJWord,
     pub en: Vec<String>,
 }
@@ -46,9 +49,11 @@ pub fn parse_dict(raw_dict: String) -> Vec<DictEntry> {
         entries.entry((fields[1],fields[0])).or_insert(Vec::with_capacity(1)).push(String::from(fields[2]));
     }
 
-    let mut dict: Vec<DictEntry> = entries.into_iter().map(
-        |((oj, meta), en)| {DictEntry {oj: OJWord::parse(oj, meta), en}}
-    ).collect();
+    let mut dict: Vec<DictEntry> = entries.into_iter().map( |((oj, meta), en)| {
+        let oj = OJWord::parse(oj, meta);
+        let fiero = Fiero::parse(&oj.word);
+        DictEntry {fiero, oj, en}
+    }).collect();
     drop(raw_dict);
     dict.sort_unstable();
     dict
