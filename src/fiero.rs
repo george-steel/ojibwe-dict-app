@@ -83,7 +83,7 @@ impl Fiero {
     fn indel_dist(self) -> u32 {
         match self {
             DASH => 1,
-            I | O | A | H => 5,
+            I | O | A | H | N => 5,
             _ => 10
         }
     }

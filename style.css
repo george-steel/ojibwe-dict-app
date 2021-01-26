@@ -1,6 +1,10 @@
-main {
+main, footer {
     max-width: 60em;
     margin: 0 auto;
+}
+
+footer {
+    margin-top: 2em;
 }
 
 #searchcontrols {

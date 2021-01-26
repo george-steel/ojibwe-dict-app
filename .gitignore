@@ -2,3 +2,6 @@ debug/
 target/
 pkg/
 **/*.rs.bk
+# Local Netlify folder
+.netlify
+out/
