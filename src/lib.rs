@@ -3,8 +3,10 @@ use serde_wasm_bindgen::to_value;
 
 mod dictentry;
 mod fiero;
+mod utils;
 
 use dictentry::DictEntry;
+use fiero::{Fiero, edit_distance};
 
 #[wasm_bindgen]
 extern "C" {
@@ -32,7 +34,12 @@ impl Dictionary {
     }
 
     pub fn search_oj(&self, query: &str) -> Vec<&DictEntry> {
-        self.entries.iter().filter(|entry| entry.oj.contains(query)).take(100).collect()
+        let fiero_query = Fiero::parse(query);
+        let edit_dist = |entry: &DictEntry| edit_distance(&entry.fiero, &fiero_query);
+
+        let matches = utils::find_smallest(&self.entries, edit_dist, 50, 10);
+
+        matches.iter().map(|x| x.1).collect()
     }
 }
 

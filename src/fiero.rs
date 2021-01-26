@@ -1,3 +1,5 @@
+use array2d::Array2D;
+
 #[derive(Clone,Copy,PartialEq,Eq,PartialOrd,Ord,Hash,Debug)]
 pub enum Fiero {
     SPACE, DASH,
@@ -77,5 +79,43 @@ impl Fiero {
         }
         out
     }
+
+    fn indel_dist(self) -> u32 {
+        match self {
+            DASH => 1,
+            I | O | A | H => 5,
+            _ => 10
+        }
+    }
+
+    fn mod_dist(self, other: Self) -> u32 {
+        match (self, other) {
+            _ if self == other => 0,
+            (P,B) | (B,P) | (T,D) | (D,T) | (K,G) | (G,K) | (J,CH) | (CH,J) | 
+            (S,Z) | (Z,S) | (SH,ZH) | (ZH,SH) => 1,
+            (I,II) | (II,I) | (O,OO) | (OO,O) | (A,AA) | (AA,A) => 7,
+            _ => 10
+        }
+    }
+}
+
+pub fn edit_distance(xs: &[Fiero], ys: &[Fiero]) -> u32 {
+    let xl = xs.len(); let yl = ys.len();
+
+    // edge cases of indels at start of word
+    let mut dists: Array2D<u32> = Array2D::filled_with(0, xl + 1, yl + 1);
+    for x in 1..=xl {dists[(x,0)] = dists[(x-1,0)] + xs[x-1].indel_dist()}
+    for y in 1..=yl {dists[(0,y)] = dists[(0,y-1)] + ys[y-1].indel_dist()}
+
+    // recurrence cases
+    for x in 1..=xl {
+        for y in 1..=yl {
+            dists[(x,y)] = 
+            (dists[(x-1,y-1)] + xs[x-1].mod_dist(ys[y-1]))
+            .min(dists[(x,y-1)] + ys[y-1].indel_dist())
+            .min(dists[(x-1,y)] + xs[x-1].indel_dist())
+        }
+    }
+    dists[(xl,yl)]
 }
 
