@@ -51,6 +51,9 @@ impl Dictionary {
     pub fn search_oj_js(&self, query: &str) -> JsValue {
         to_value(&self.search_oj(query)).unwrap()
     }
+    pub fn size(&self) -> usize {
+        self.entries.len()
+    }
 }
 
 
@@ -58,6 +61,6 @@ impl Dictionary {
 // Called when the wasm module is instantiated
 #[wasm_bindgen(start)]
 pub fn main() -> Result<(), JsValue> {
-    log("Hello from Rust");
+    log("Hello from Rust 2");
     Ok(())
 }

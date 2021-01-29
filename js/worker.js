@@ -7,6 +7,7 @@ let dict = null;
 
 Promise.all([mwasm, mrawdict]).then(([wasm, rawdict]) => {
     dict = wasm_bindgen.parse_dict(new Uint8Array(rawdict));
+    console.log(`Loaded the dictionary with ${dict.size()} entries`);
     startSearch();
 });
 

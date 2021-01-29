@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::collections::BTreeSet;
 use serde::{Serialize};
 use crate::fiero::Fiero;
 
@@ -40,20 +41,51 @@ impl DictEntry {
     }
 }
 
+fn unrotate(input: &str) -> Option<String> {
+
+    if let [word, ctx] = input.split(": ").collect::<Vec<_>>()[..] {
+        if let [before, after] = ctx.split("~").collect::<Vec<_>>()[..] {
+            return Some(format!("{}{}{}", before, word, after));
+        }
+    }
+    None
+}
+
+fn make_entry(((oj, meta), en): ((&str, &str), Vec<&str>)) -> DictEntry {
+    let oj = OJWord::parse(oj, meta);
+    let fiero = Fiero::parse(&oj.word);
+    let mut defs: BTreeSet<String> = BTreeSet::new();
+    let mut rots: Vec<(&str, String)> = Vec::new();
+
+    // take clearly unrotated strings
+    for def in en {
+        match unrotate(def) {
+            Some(s) => rots.push((def,s)),
+            None => {defs.insert(String::from(def));}
+        }
+    }
+    // filter potential rotations between duplicates and unique terms.
+    for (rot, unrot) in rots.into_iter() {
+        if !defs.contains(&unrot) {
+            defs.insert(String::from(rot));
+        }
+    }
+    let defs_vec = defs.into_iter().collect();
+    DictEntry {fiero, oj, en: defs_vec}
+}
+
+// parse TSV and collect duplicate entries
 pub fn parse_dict(raw_dict: String) -> Vec<DictEntry> {
-    let mut entries: HashMap<(&str, &str), Vec<String>> = HashMap::new();
+    let mut entries: HashMap<(&str, &str), Vec<&str>> = HashMap::new();
 
     for line in raw_dict.lines() {
         let fields: Vec<&str> = line.split('\t').collect();
-        if fields.len() != 3 {continue;}
-        entries.entry((fields[1],fields[0])).or_insert(Vec::with_capacity(1)).push(String::from(fields[2]));
+        if let [meta, oj, en] = fields[..] {
+            entries.entry((oj, meta)).or_insert(Vec::with_capacity(1)).push(en);
+        }
     }
 
-    let mut dict: Vec<DictEntry> = entries.into_iter().map( |((oj, meta), en)| {
-        let oj = OJWord::parse(oj, meta);
-        let fiero = Fiero::parse(&oj.word);
-        DictEntry {fiero, oj, en}
-    }).collect();
+    let mut dict: Vec<DictEntry> = entries.into_iter().map(make_entry).collect();
     drop(raw_dict);
     dict.sort_unstable();
     dict
