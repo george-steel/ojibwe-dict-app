@@ -11,8 +11,7 @@ Promise.all([mwasm, mrawdict]).then(([wasm, rawdict]) => {
     startSearch();
 });
 
-let searchOJ = "";
-let searchEN = "";
+let search = null;
 let searchTriggered = false;
 function startSearch() {
     if (!searchTriggered) {
@@ -25,32 +24,18 @@ function runSearch() {
     if (!dict) return;
 
     let results = null;
-    if (searchOJ)
-        results = dict.search_oj_js(searchOJ);
-    else
-        results = dict.search_en_js(searchEN);
+    if (search == null)
+        results = dict.search_en_js("");
+    else if (search.action == "search-oj")
+        results = dict.search_oj_js(search.query, search.mode);
+    else if (search.type == "search-en")
+        results = dict.search_en_js(search.query);
     postMessage({searchResults: results});
 }
 
 onmessage = e => {
-    if (e.data.action == 'search') {
-        console.log(e.data);
-        searchOJ = e.data.oj;
-        searchEN = e.data.en;
-        startSearch()
-    }
+    console.log(e.data);
+    search = e.data;
+    startSearch();
 };
 
-////////////////////////////////////////////////////////////////////////////////
-
-function searchDict(entries, queryOJ, queryEN) {
-    const maxResults = 100;
-    let results = [];
-    for ([meta, oj, en] of entries) {
-        if (queryOJ && !oj.includes(queryOJ)) continue;
-        if (queryEN && !en.includes(queryEN)) continue;
-        results.push({meta,oj,en});
-        if (results.length >= maxResults) break;
-    }
-    return results;
-}

@@ -1,27 +1,26 @@
 import {html, render, nothing} from 'https://unpkg.com/lit-html?module';
 
-const searchOJBox = document.getElementById('search-oj');
-const searchENBox = document.getElementById('search-en');
-const resultsBox = document.getElementById('resultslist');
+const elem = (id) => document.getElementById(id);
 
-const worker = new Worker('js/worker.js');
+const search_worker = new Worker('js/worker.js');
 
-searchOJBox.oninput = e => {
-    searchENBox.value = "";
-    worker.postMessage({
-        action: 'search',
-        oj: searchOJBox.value.trim(),
-        en: ''
-    });
+function search_oj() {
+    elem('en-query').value = "";
+    const query = elem('oj-query').value.trim();
+    if (!query) return;
+    const mode = parseInt(elem('oj-mode').value);
+    search_worker.postMessage({action: 'search-oj', query, mode});
 }
-searchENBox.oninput = e => {
-    searchOJBox.value = "";
-    worker.postMessage({
-        action: 'search',
-        en: searchENBox.value.trim(),
-        oj: ''
-    });
+
+function search_en() {
+    elem('oj-query').value = "";
+    const query = elem('en-query').value.trim();
+    search_worker.postMessage({action: 'search-en', query});
 }
+
+elem('oj-query').oninput = search_oj;
+elem('oj-mode').oninput = search_oj;
+elem('en-query').oninput = search_en;
 
 const resultRow = row => html`<tr>
     <td class='oj-meta'>${row.oj.meta}</td>
@@ -31,8 +30,8 @@ const resultRow = row => html`<tr>
 
 const resultRows = results => html`${results.map(resultRow)}`;
 
-worker.onmessage = e => {
+search_worker.onmessage = e => {
     console.log(e);
     const rows = resultRows(e.data.searchResults);
-    render(rows, resultsBox);
+    render(rows, elem('results-list'));
 }

@@ -83,8 +83,8 @@ impl Fiero {
     fn indel_dist(self) -> u32 {
         match self {
             DASH => 1,
-            I | O | A | H | N => 5,
-            _ => 10
+            I | O | A | H | N => 500,
+            _ => 1000
         }
     }
 
@@ -92,20 +92,29 @@ impl Fiero {
         match (self, other) {
             _ if self == other => 0,
             (P,B) | (B,P) | (T,D) | (D,T) | (K,G) | (G,K) | (J,CH) | (CH,J) | 
-            (S,Z) | (Z,S) | (SH,ZH) | (ZH,SH) => 1,
-            (I,II) | (II,I) | (O,OO) | (OO,O) | (A,AA) | (AA,A) => 7,
-            _ => 10
+            (S,Z) | (Z,S) | (SH,ZH) | (ZH,SH) => 100,
+            (I,II) | (II,I) | (O,OO) | (OO,O) | (A,AA) | (AA,A) => 700,
+            _ => 1000
         }
     }
 }
 
-pub fn edit_distance(xs: &[Fiero], ys: &[Fiero]) -> u32 {
+pub const BASE_EDIT_DIST: u32 = 1000;
+
+pub fn edit_distance(xs: &[Fiero], ys: &[Fiero], x_substr_y: Option<u32>) -> u32 {
     let xl = xs.len(); let yl = ys.len();
 
     // edge cases of indels at start of word
     let mut dists: Array2D<u32> = Array2D::filled_with(0, xl + 1, yl + 1);
     for x in 1..=xl {dists[(x,0)] = dists[(x-1,0)] + xs[x-1].indel_dist()}
-    for y in 1..=yl {dists[(0,y)] = dists[(0,y-1)] + ys[y-1].indel_dist()}
+    for y in 1..=yl {
+        dists[(0,y)] = if let Some(tail_step) = x_substr_y {
+            match ys[y-1] {
+                SPACE | DASH => tail_step,
+                _ => dists[(0,y-1)] + tail_step
+            }
+        } else {dists[(0,y-1)] + ys[y-1].indel_dist()}
+    }
 
     // recurrence cases
     for x in 1..=xl {
@@ -116,6 +125,18 @@ pub fn edit_distance(xs: &[Fiero], ys: &[Fiero]) -> u32 {
             .min(dists[(x-1,y)] + xs[x-1].indel_dist())
         }
     }
-    dists[(xl,yl)]
+
+    if let Some(tail_step) = x_substr_y {
+        let mut taildist = 0;
+        let mut smallest = dists[(xl,yl)];
+        for y in (1..=yl).rev(){
+            smallest = smallest.min(dists[(xl,y)] + taildist);
+            taildist = match ys[y-1] {
+                SPACE | DASH => tail_step,
+                _ => taildist + tail_step
+            }
+        }
+        smallest
+    } else {dists[(xl,yl)]}
 }
 

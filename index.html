@@ -14,8 +14,17 @@
 
 <main>
 <form id="searchcontrols">
-    <input id="search-oj" placeholder="Search Ojibwe"/>
-    <input id="search-en" placeholder="Search English"/>
+    <div id="search-oj">
+        <input id="oj-query" placeholder="Search Ojibwe"/>
+        <select id="oj-mode">
+            <option value="0">Whole word</option>
+            <option value="1">Query ⊆ word</option>
+            <option value="2">Word ⊆ query</option>
+        </select>
+    </div>
+    <div id="search-en">
+        <input id="en-query" placeholder="Search English"/>
+    </div>
 </form>
 
 <table id="results">
@@ -24,7 +33,7 @@
         <th>Ojibwe</th>
         <th>English</th>
     </tr></thead>
-    <tbody id="resultslist"></tbody>
+    <tbody id="results-list"></tbody>
 </table>
 
 </main>
