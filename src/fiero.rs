@@ -9,6 +9,9 @@ pub enum Fiero {
     L, R, TH, FV,
 }
 
+mod syllabics;
+pub use syllabics::to_syllabics;
+
 use Fiero::*;
 
 impl Fiero {

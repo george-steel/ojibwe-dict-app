@@ -30,9 +30,12 @@ input {
     table-layout: auto;
     width: 100%;
 }
+#results tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
 #results td {
     margin: 0;
-    padding: 0.25em 0.5em;
+    padding: 0.5em 0.5em;
     vertical-align: top;
 }
 

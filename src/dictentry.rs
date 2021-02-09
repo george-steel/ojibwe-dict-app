@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::collections::BTreeSet;
 use serde::{Serialize};
-use crate::fiero::Fiero;
+use crate::fiero::{Fiero,to_syllabics};
 
 #[derive(Clone, PartialOrd, Ord, PartialEq, Eq, Serialize)]
 pub struct OJWord {
@@ -14,6 +14,7 @@ pub struct OJWord {
 pub struct DictEntry {
     #[serde(skip)]
     pub fiero: Vec<Fiero>,
+    pub syllabics: String,
     pub oj: OJWord,
     pub en: Vec<String>,
 }
@@ -71,7 +72,8 @@ fn make_entry(((oj, meta), en): ((&str, &str), Vec<&str>)) -> DictEntry {
         }
     }
     let defs_vec = defs.into_iter().collect();
-    DictEntry {fiero, oj, en: defs_vec}
+    let syllabics = to_syllabics(&fiero);
+    DictEntry {fiero, syllabics, oj, en: defs_vec}
 }
 
 // parse TSV and collect duplicate entries

@@ -28,7 +28,7 @@ function runSearch() {
         results = dict.search_en_js("");
     else if (search.action == "search-oj")
         results = dict.search_oj_js(search.query, search.mode);
-    else if (search.type == "search-en")
+    else if (search.action == "search-en")
         results = dict.search_en_js(search.query);
     postMessage({searchResults: results});
 }
