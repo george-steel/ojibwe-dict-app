@@ -8132,7 +8132,7 @@
 (pc)	ashi ishwaaso-giizhik	eighteen days
 (pc)	ashi ishwaaso-giizis	eighteen months
 (pc)	ashi ingodwaaso-biboon	sixteen years
-	ashi ingodwaaso-biboonagad (vii:sixteen years: be ~)	$4
+(vii)	ashi ingodwaaso-biboonagad	sixteen years: be ~
 (vai)	ashi ingodwaaso-biboonagizi	sixteen years old: be ~
 (pc)	ashi ingodwaaso-giizhik	sixteen days
 (pc)	ashi ingodwaaso-giizis	sixteen months
@@ -10887,10 +10887,10 @@
 	Aniibiishaabookewinini+wag	person: Chinese ~
 	Aniibiishaabookewinini+wag	person: Japanese ~
 	Aniibiishaabookewinini+wag	person: Oriental ~
-	aniibiishaabookewininiiwi	Asian: be ~ (vai)
-	aniibiishaabookewininiiwi	Chinese: be ~ (vai)
-	aniibiishaabookewininiiwi	Japanese: be ~ (vai)
-	aniibiishaabookewininiiwi	Oriental: be ~ (vai)
+(vai)	aniibiishaabookewininiiwi	Asian: be ~
+(vai)	aniibiishaabookewininiiwi	Chinese: be ~
+(vai)	aniibiishaabookewininiiwi	Japanese: be ~
+(vai)	aniibiishaabookewininiiwi	Oriental: be ~
 	aniibiishaaboo+n	tea [a drink]
 	aniibiishaaboo-onaagaans+an	cup: tea~
 	aniibiishaaboo-onaagaans+an	saucer
@@ -14670,7 +14670,7 @@
 (vai)	babaa-odamino	play about
 (vai)	babaa-odamino	play around
 (vaip)(AL)	babaa'okwiino+wag	animal trooping after female in heat
-	bapawibani'o (vai)(CN)	shake off (as a dog when wet)
+(vai)(CN)	bapawibani'o	shake off (as a dog when wet)
 	babaa-wiijiindi+wag	go about with OA
 	babaa-wiijiindiwin+an	going about with OA
 (vta)	babaa-wiiji'	accompany SO to various places
@@ -17649,18 +17649,14 @@
 (vai)	baakwaa'ishiimo	French: speak Québecois ~
 (vai)	baakwaa'ishiimo	Québecois: speak ~ French
 (vai)	baakwaa'ishiimo	speak Québecois French
-	baakwaa'ishiimobii'igaade (vii)French: be written in Québecois ~:French: be written in Québecois ~	$4
-	baakwaa'ishiimobii'igaade (vii)written: be ~ in Québecois French:written: be ~ in Québecois French	$4
-	baakwaa'ishiimobii'igaade (vii)Québecois French: be written in ~:Québecois French: be written in ~	$4
+(vii)	baakwaa'ishiimobii'igaade	Québecois French: be written in ~
 	baakwaa'ishiimowin+an	French: Québecois ~ language
 	baakwaa'ishiimowin+an	Québecois French language
 (loc)(NW)	baakwaa'ishiiwakiing	France (geo)
 (loc)	baakwaa'ishiiwakiing	Québec (geo)
 (vai)	baakwaa'ishiiwi	French: be Québecois ~
 (vai)	baakwaa'ishiiwi	Québecois French: be ~
-	baakwaa'ishiiwibii'igaade (vii)French: be written in Québecois ~:French: be written in Québecois ~	$4
-	baakwaa'ishiiwibii'igaade (vii)written: be ~ in Québecois French:written: be ~ in Québecois French	$4
-	baakwaa'ishiiwibii'igaade (vii)Québecois French: be written in ~:Québecois French: be written in ~	$4
+(vii)	baakwaa'ishiiwibii'igaade	Québecois French: be written in ~
 (pc)	baakwaash	could be
 (pc)	baakwaash	I believe so
 (pc)	baakwaash	I think so
@@ -17982,12 +17978,12 @@
 (vai)	bakobiigwaashkwani	leap into the water
 (vai)	bakobiigwaashkwani	water: jump into the ~
 (vai)	bakobiigwaashkwani	water: leap into the ~
-(SE/NE/NW)	bakobiigwaashkoni	into: jump ~ the water (vai)
-(SE/NE/NW)	bakobiigwaashkoni	into: leap ~ the water (vai)
-(SE/NE/NW)	bakobiigwaashkoni	jump into the water (vai)
-(SE/NE/NW)	bakobiigwaashkoni	leap into the water (vai)
-(SE/NE/NW)	bakobiigwaashkoni	water: jump into the ~ (vai)
-(SE/NE/NW)	bakobiigwaashkoni	water: leap into the ~ (vai)
+(vai)(SE/NE/NW)	bakobiigwaashkoni	into: jump ~ the water
+(vai)(SE/NE/NW)	bakobiigwaashkoni	into: leap ~ the water
+(vai)(SE/NE/NW)	bakobiigwaashkoni	jump into the water
+(vai)(SE/NE/NW)	bakobiigwaashkoni	leap into the water
+(vai)(SE/NE/NW)	bakobiigwaashkoni	water: jump into the ~
+(vai)(SE/NE/NW)	bakobiigwaashkoni	water: leap into the ~
 (vii)	bakobiigoode	fall into the water
 (vii)	bakobiigoode	water: fall into the ~
 (vai)	bakobiigoojin	fall into the water
@@ -29453,7 +29449,7 @@
 (vai2)	daatagaadendam	difficult: reluctant to do ~ TH
 (vai2)	daatagaadendam	overwhelmed thinking doing difficult TH
 (vai2)	daatagaadendam	reluctant to do difficut TH
-	daatagaadendam (vai2) :think: overwhelmed ~ing doing difficult TH	$4
+(vai2)	daatagaadendam	think: overwhelmed ~ing doing difficult TH
 (vti)	daatagaadendan	difficult: overwhelmed thinking doing ~ ST
 (vti)	daatagaadendan	difficult: reluctant to do ~ ST
 (vti)	daatagaadendan	overwhelmed thinking doing difficult ST
@@ -29483,7 +29479,7 @@
 (vai)	daatagaajii	inactive: be ~
 (vai)	daatagaajii	indolent: be ~
 (vai)	daatagaajii	sluggish: be ~
-	daatagaajii (vai) :work: not be ~ing	$4
+(vai)	daatagaajii 	work: not be ~ing
 	daatagaajiiwin+an	inactivity
 	daatagaajiiwin+an	indolence
 	daatagaajiiwin+an	lazy: be ~
@@ -29799,7 +29795,7 @@
 (vai)	dakigaade	leg: have a cold ~
 (vii)	dakigamaa	cool body of water
 (vii)	dakigamaa	water: cool body of ~
-	dakigamin (vii)(CS\0:cold spring-water	$4
+(vii)(CS)	dakigamin	cold spring-water
 (vii)(NW/WO)	dakigamin	cold: be ~ [liquid]
 (vti2)	dakigamisidoon	cool off ST [liquid]
 (vii)(CN/NW/WO)	dakigamisin	cool off [liquid]
@@ -31028,8 +31024,8 @@
 (vai)	danweweyaabideshin	hear: be ~d making noise from teeth
 (vai)	danweweyaabideshin	noise: be heard making ~ from teeth
 (vai)	danweweyaabideshin	teeth: be heard making noise from ~
-	danweweyaabideshinonaaniwan	gnash: be ~ing teeth (vii)
-	danweweyaabideshinonaaniwan	teeth: be gnashing ~ (vii)
+(vii)	danweweyaabideshinonaaniwan	gnash: be ~ing teeth
+(vii)	danweweyaabideshinonaaniwan	teeth: be gnashing ~
 (vai)	danwewenjige	chew: be heard ~ing SP
 (vai)	danwewenjige	hear: be ~d chewing SP
 (vai2)	danwewidam	noise: make ~ from SP
@@ -33291,8 +33287,8 @@
 	ditibinaagan+an	scroll: bark ~
 (vii)	ditibinashkwemaginigaade	mat: be rolled up in a birchbark ~
 (vii)	ditibinashkwemaginigaade	roll up: be ~ed in a birchbark mat
-	ditibinashkwemaginiganiwi (vai)mat: be rolled up in a birchbark ~:mat: be rolled up in a birchbark ~	$4
-	ditibinashkwemaginiganiwi (vai)roll up: be ~ed in a birchbark mat:roll up: be ~ed in a birchbark mat	$4
+(vai)	ditibinashkwemaginiganiwi	mat: be rolled up in a birchbark ~
+(vai)	ditibinashkwemaginiganiwi	roll up: be ~ed in a birchbark mat
 (vta)	didibinamaw	roll TH (away) for SO
 (vta)	didibinamaw	roll TH belonging to SO
 (vta)	didibinamaw	roll TH relating to SO
@@ -36428,7 +36424,7 @@
 (vaip)	gaajiba'idi+wag	run and hide with OA
 (vai)	gaajiba'iwe	hide: run and ~
 (vai)	gaajiba'iwe	run and hide
-	gaajibani'o (vai)	jump quickly into hiding
+(vai)	gaajibani'o	jump quickly into hiding
 (vai)	gaajibani'o	hide: jump quickly into ~ing
 	Gaa-jiibo-zaagidawaag-zaaga'igan	Crow Wing Lake: First ~ (MN)[Hubbard]
 	Gaa-jiibo-zaagidawaag-zaaga'igan	Norway Lake (MN)[Cass]
@@ -48096,7 +48092,7 @@
 	godagi'iwewin+an	torment
 	godagi'iwewin+an	torture
 (vta)	godagim	torment SO
-	godagim (vta)	suffer: make SO ~
+(vta)	godagim	suffer: make SO ~
 (vta)	godagimaam	suffer from the smell of SO
 (vti)	godagimaandan	suffer from the smell of ST
 	Godagiing	Fort Frances (ON)
@@ -50351,7 +50347,7 @@
 (pc)	ishkwaa-akiiwang	end of world: at the ~
 (vai)(NW)	ishkwaa-ayaa	die
 (vai)	ishkwaa-ayaa	forever: go ~
-	ishkwaa-anama'e-giizhigad	Monday: be ~ (vii)
+(vii)	ishkwaa-anama'e-giizhigad	Monday: be ~
 (vii)	ishkwaa-anami'e-giizhigad	day after prayer day: be ~ [Monday]
 (vii)	ishkwaa-anami'e-giizhigad	Monday: be ~
 (vta)	ishkwaa-anoozh	after commission SO has been completed
@@ -50404,7 +50400,7 @@
 (CS)	ishkwaajikidoobii'igan+an	period
 (vii)	ishkwaagaa	sap: be the last run of ~
 (vii)	ishkwagaapogwad	tastes like spoiled maple-sap
-	ishkwaakajanokii-giizhigad	Saturday: be ~ (vii)
+(vii)	ishkwaakajanokii-giizhigad	Saturday: be ~
 	Ishkwaagamaa-misi-zaaga'igan	Minnetonka: Lake ~ (MN)[Hennepin]{east lobe}
 	Ishkwaagamaa-zaaga'igan	Bear Lake (WI)[Washburn/Barron]
 	Ishkwaagamaa-zaaga'igan	Eagles Nest Lake No. 4 (MN)[St. Louis]
@@ -50506,8 +50502,8 @@
 (vai)	ishkwaa-wiisini	eat: finish ~ing
 (vai)	ishkwaa-wiisini	finish eating
 (vii)(NW/WO)	ishkwaa-oshki-giizhigad	Tuesday: be ~
-	ishkwaa-onaagoshi-wiisini	dinner: eat ~ (vai)
-	ishkwaa-onaagoshi-wiisini	eat dinner (vai)
+(vai)	ishkwaa-onaagoshi-wiisini	dinner: eat ~
+(vai)	ishkwaa-onaagoshi-wiisini	eat dinner
 	ishkwa'oonzhaan+ag	child: last-born ~
 	ishkwa'oonzhaan+ag	child: youngest ~
 	ishkwa'oonzhaan+ag	last-born child
@@ -51324,8 +51320,8 @@
 (pc)	ishwaaswaaki	year: eight ~s' time
 (nm)	ishwaaswaakwo'agan	eight spans
 (nm)	ishwaaswaakwo'agan	span: eight ~s
-	ishwaaso-anama'e-giizhik	eight weeks (pc)
-	ishwaaso-anama'e-giizhigad	eight weeks: be ~ (vii)
+(pc)	ishwaaso-anama'e-giizhik	eight weeks
+(vii)	ishwaaso-anama'e-giizhigad	eight weeks: be ~
 (pc)	ishwaasobaneninj	eight handfuls
 (pc)	ishwaasobaneninj	handful: eight ~s
 (pc)	ishwaaso-biboon	eight years
@@ -52343,8 +52339,8 @@
 (pc)	ingodwaaswaaki	year: six ~s' time
 (nm)	ingodwaaswaakwo'agan	six spans
 (nm)	ingodwaaswaakwo'agan	span: six ~s
-	ingodwaaso-anama'e-giizhik	six weeks (pc)
-	ingodwaaso-anama'e-giizhigad	six weeks: be ~ (vii)
+(pc)	ingodwaaso-anama'e-giizhik	six weeks
+(vii)	ingodwaaso-anama'e-giizhigad	six weeks: be ~
 (pc)	ingodwaasobaneninj	handful: six ~s
 (pc)	ingodwaasobaneninj	six handfuls
 (pc)	ingodwaaso-biboon	six years
@@ -53606,9 +53602,9 @@
 (NW)	zhaaboshkaawin+an	progressing well towards promotion
 (vta)	zhaaboshkaas	sift SO
 (SW)	zhaaboshke'igan+an	jingle
-	zhaaboshkosiwagaa (vii)(NW/WO))through: be grassy ~ a channel:through: be grassy ~ a channel	$4
-	zhaaboshkosiwagaa (vii)(NW/WO))channel: be grassy through a ~:channel: be grassy through a ~	$4
-	zhaaboshkosiwagaa (vii)(NW/WO))grass: be ~y through a channel:grass: be ~y through a channel	$4
+(vii)(NW/WO)	zhaaboshkosiwagaa	through: be grassy ~ a channel
+(vii)(NW/WO)	zhaaboshkosiwagaa	channel: be grassy through a ~
+(vii)(NW/WO)	zhaaboshkosiwagaa	grass: be ~y through a channel
 	Zhaaboshkosiwagaang	Grassy Narrows (ON)
 	zhaaboominaatig+oog	gooseberry [bush]
 	zhaaboominaatig+oog	ribes oxyacanthoides
@@ -58903,7 +58899,7 @@
 (vai)	madweboojige	saw: heard ~ing
 (vai)	madwetaa	hear: be ~d doing TH
 (vai)	madwetaa	hear: be ~d in activity
-	madwe-danwewidam (vai2:hear: be ~d speaking from a distance	$4
+(vai2)	madwe-danwewidam	hear: be ~d speaking from a distance
 (vai2)	madwe-danwewidam	hear: be ~d speaking from SP
 (vai2)	madwe-danwewidam	speak: be heard ~ing from a distance
 (vai2)	madwe-danwewidam	speak: be heard ~ing from SP
@@ -65612,8 +65608,8 @@
 (pc)	midaaswayeg	ten kinds
 (pc)	midaaswayeg	ten ways
 (pc)	midaaswayeg	way: ten ~s
-	midaaso-anama'e-giizhik	ten weeks (pc)
-	midaaso-anama'e-giizhigad	ten weeks: be ~ (vii)
+(pc)	midaaso-anama'e-giizhik	ten weeks
+(vii)	midaaso-anama'e-giizhigad	ten weeks: be ~
 (geo)	Midaaso-bawatig	Mississippi River rapids [b/n Lk Bemidji & Wolf Lk]
 (pc)	midaaso-biboon	ten years
 	midaaso-biboon ashi bezhig	eleven years (pc)
@@ -65826,7 +65822,7 @@
 (pc)	midaasonik	armlength: ten arms/~s
 (pc)	midaasonik	ten arms/armlengths
 (vai)	midaaso-niizhwewaanagizi	twelve: be a group of ~
-	midaaso-niizhwewaanagizi+wag	twelve: be ~ tribes (vaip)
+(vaip)	midaaso-niizhwewaanagizi+wag	twelve: be ~ tribes
 (pc)	midaasoninj	ten inches
 (pc)	midaasowan	bag: ten ~fuls
 (pc)	midaasowan	bag: ten ~s
@@ -66681,7 +66677,7 @@
 	miigiwaamens+an	house: little ~
 	miigiwaamens+an	outhouse
 	miigiwaamens+an	wigwam: little ~
-	miigiwaamikaw (vta:dwell in SO	$4
+(vta)	miigiwaamikaw	dwell in SO
 (vai)	miigiwaamige	dwelling: live in a ~
 (vai)	miigiwaamike	dwelling: make a ~
 	miigiwaaming-dibendaasowin+an	belongings: household ~
@@ -75364,7 +75360,7 @@
 (pc)	naawikana	road: in the middle of the ~
 (nom)	Naawigiizis	Middle of the Moon
 (nom)	Naawigiizis	Middle of the Sun
-(NW/WO)	naawikwe	noon: be ~ (vii)
+(vii)(NW/WO)	naawikwe	noon: be ~
 (pc)	naawishkode	fire: in the middle of a ~
 (pc)	naawishkode	fire: in the midst of ~
 	Naawizhijiwani-ziibiins	Loyalhanna Creek (PA)
@@ -78796,7 +78792,7 @@
 (pc)	nishwaaswayeg	way: eight ~s (NO/NW/WO)
 	nishwaaso-anama'e-giizhik	eight weeks (pc)
 (pc)	niizhwaaso-anama'e-giizhik	seven weeks
-	nishwaaso-anama'e-giizhigad	eight weeks: be ~ (vii)
+(vii)	nishwaaso-anama'e-giizhigad	eight weeks: be ~
 (vii)	niizhwaaso-anama'e-giizhigad	seven weeks: be ~
 (pc)	niizhwaasobaneninj	handful: seven ~s
 (pc)	niizhwaasobaneninj	seven handfuls
@@ -79712,7 +79708,7 @@
 (pr1p)	niinawind	we (but not you)
 (pr3)	niinawind dowa	like: one ~ ourselves
 (pr3p)	niinawind dowag	like: several ~ ourselves
-	ninasid+an	hoof: my ~ (ves)
+(ves)	ninasid+an	hoof: my ~
 (pf)	nind+	(1) for V(n)
 (pr1)(PO/SE)	ninda-	nind=a=
 (nom)	Ninda	Linda
@@ -80472,7 +80468,7 @@
 (pc)	ningodwaaswayeg	way: six ~s
 	ningodwaaso-anama'e-giizhig	six weeks (pc)
 (pc)(SW)	ningodwaaso-anama'e-giizhik	six weeks
-	ningodwaaso-anama'e-giizhigad	six weeks: be ~ (vii)
+(vii)	ningodwaaso-anama'e-giizhigad	six weeks: be ~
 (pc)	ningodwaasobaneninj	handful: six ~s
 (pc)	ningodwaasobaneninj	six handfuls
 (pc)	ningodwaaso-biboon	six years
@@ -80524,10 +80520,10 @@
 (pc)	ningodwaasogamig	house: six ~/household
 (pc)	ningodwaasogamig	household: six house/~
 (pc)	ningodwaasogamig	six house/household
-	ningodwaasogamigizi+wag	group: be a ~ of six houses/lodges (vaip)
-	ningodwaasogamigizi+wag	house: be a group of six ~s/lodges (vaip)
-	ningodwaasogamigizi+wag	lodge: be a group of six houses/~s (vaip)
-	ningodwaasogamigizi+wag	six: be a group of ~ houses/lodges (vaip)
+(vaip)	ningodwaasogamigizi+wag	group: be a ~ of six houses/lodges 
+(vaip)	ningodwaasogamigizi+wag	house: be a group of six ~s/lodges
+(vaip)	ningodwaasogamigizi+wag	lodge: be a group of six houses/~s
+(vaip)	ningodwaasogamigizi+wag	six: be a group of ~ houses/lodges
 (pc)	ningodwaasokanzh	cluster: six ~s of fruit
 (pc)	ningodwaasokanzh	six clusters of fruit
 	ningodwaaso-giizhik	six days (pc)
@@ -80996,7 +80992,7 @@
 (vaip)(NW)	niinzhwaachi+wag	seven: be ~
 (nm)(NW)	niinzhwaak	two hundred
 (pc)(NW)	niinzho-anama'e-giizhik	two weeks
-	niinzho-anama'e-giizhigad	two weeks: be ~ (vii)
+(vii)	niinzho-anama'e-giizhigad	two weeks: be ~
 (nm)(NW)	niinzhwaasimidana	seventy
 (pv4)(NW)	niinzhwaaso-	seven
 (pc)(NW)	niinzhwaaswaabik	dollar: seven ~s
@@ -100022,7 +100018,7 @@
 (vai)	ziiwimaagozi	smell sour
 (vai)	ziiwimaagozi	sour: smell ~
 (vai)(NW)	ziiwiskaabi	wink
-	ziiwiskaabibani'o (vai)(CN)	squints from eating something sour
+(vai)(CN)	ziiwiskaabibani'o	squints from eating something sour
 (vii)(NW/WO)	ziiwiskad	sour: be ~
 (vii)	ziiwiskipogwad	sour: taste ~
 (vii)	ziiwiskipogwad	taste sour
