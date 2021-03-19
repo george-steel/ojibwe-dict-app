@@ -1,55 +1,76 @@
-main, footer {
-    max-width: 60em;
-    margin: 0 auto;
+html {
+    margin: 0;
+}
+
+body {
+    --separator: rgba(0,0,0, 0.12);
+    --bg-color: #ffffff;
+    --text-reg: rgba(0,0,0, 0.87);
+    --text-strong: rgba(0,0,0, 1);
+    --text-weak: rgba(0,0,0, 0.6);
+    color: var(--text-reg);
+    font-size: 16px;
+    margin: 0;
+    font-family: Roboto, sans-serif;
 }
 
 footer {
-    margin-top: 2em;
+    padding: 24px 16px;
 }
 
 #searchcontrols {
+    padding: 16px;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 1em;
+    flex-direction: column;
+    border-bottom: solid 1px var(--separator);
 }
 
 input {
     padding: 0.5em 0.5em;
+    font-size: inherit;
 }
 
 #search-oj, #search-en {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+#oj-query, #en-query {
     flex-grow: 1;
-    align-items: stretch;
-    padding: 0 0.5em;
 }
 
 #results {
-    border-collapse: collapse;
-    table-layout: auto;
     width: 100%;
+    padding: 0;
 }
-#results tr:nth-child(odd) {
-    background-color: #f8f8f8;
-}
-#results td {
+
+#results > li {
+    display: block;
     margin: 0;
-    padding: 0.5em 0.5em;
-    vertical-align: top;
+    border-bottom: solid 1px var(--separator);
+    padding: 8px 16px;
 }
 
-#results thead {
-    position: sticky;
+.oj-term {
+    margin: 0 0 8px;
 }
-
-#resultslist tr:nth-child(odd) {
-    background-color: #0001;
+.oj-rm {
+    color: var(--text-strong);
+    font-weight: 500;
 }
-
 ins.oj-suffix {
-    color: #0008;
+    color: var(--text-weak);
     text-decoration: none;
+}
+.oj-syll {
+    color: var(--text-strong);
+    margin-left: 16px;
+    font-weight: 500;
+}
+.oj-meta {
+    margin-left: 16px;
+}
+.oj-meta:empty {
+    display: none;
 }
 
 .en-words > li {

@@ -22,17 +22,19 @@ elem('oj-query').oninput = search_oj;
 elem('oj-mode').oninput = search_oj;
 elem('en-query').oninput = search_en;
 
-const resultRow = row => html`<tr>
-    <td class='oj-meta'>${row.oj.meta}</td>
-    <td class='oj-word'><span class='oj-rm'>${row.oj.word}${row.oj.suffix ? html`<ins class='oj-suffix'>+${row.oj.suffix}</ins>` : nothing}</span>
-        <br/><span class='oj-syll'>${row.syllabics}</span></td>
-    <td class='en-words'>${row.en.map(s => html`<li>${s}</li>`)}</td>
-</tr>`;
+const resultRow = row => html`<li>
+    <p class='oj-term'>
+        <span class='oj-rm'>${row.oj.word}${row.oj.suffix ? html`<ins class='oj-suffix'>+${row.oj.suffix}</ins>` : nothing}</span>
+        <span class='oj-syll'>${row.syllabics}</span>
+        <span class='oj-meta'>${row.oj.meta}</span>
+    </p>
+    <ul class='en-words'>${row.en.map(s => html`<li>${s}</li>`)}</ul>
+</li>`;
 
 const resultRows = results => html`${results.map(resultRow)}`;
 
 search_worker.onmessage = e => {
     console.log(e);
     const rows = resultRows(e.data.searchResults);
-    render(rows, elem('results-list'));
+    render(rows, elem('results'));
 }
