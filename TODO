@@ -2,3 +2,7 @@
 - [x] syllabics display
 - [x] check for meta in english field, especially (v*
 - [x] make results layout responsive for phones
+- [ ] add service worker for offline support
+- [ ] syllabics options (dot side and finals)
+- [ ] expansions of metadata
+- [ ] Error message on lack on WebAssembly support
