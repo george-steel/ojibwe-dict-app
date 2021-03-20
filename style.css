@@ -3,12 +3,13 @@ html {
 }
 
 body {
-    --separator: rgba(0,0,0, 0.12);
+    --separator: rgba(0,0,0, 0.16);
     --bg-color: #ffffff;
     --text-reg: rgba(0,0,0, 0.87);
     --text-strong: rgba(0,0,0, 1);
     --text-weak: rgba(0,0,0, 0.6);
     color: var(--text-reg);
+    background-color: var(--bg-color);
     font-size: 16px;
     margin: 0;
     font-family: Roboto, sans-serif;
@@ -22,20 +23,49 @@ footer {
     padding: 16px;
     display: flex;
     flex-direction: column;
-    border-bottom: solid 1px var(--separator);
+    gap: 8px;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
 }
 
-input {
-    padding: 0.5em 0.5em;
+input, select {
+    padding: 8px;
     font-size: inherit;
+    background-color: inherit;
+    color: var(--text-strong);
+    border: solid 2px var(--text-weak);
+    border-radius: 8px;
+    appearance: none;
+    font-weight: 500;
 }
+select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, currentColor 50%),
+        linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position:
+        calc(100% - 14px) 50%,
+        calc(100% - 8px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 24px;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--test-strong);
+}
+input::placeholder {
+    color: var(--text-weak);
+
+}
+
 
 #search-oj, #search-en {
     display: flex;
     flex-direction: row;
+    gap: 8px;
 }
 #oj-query, #en-query {
     flex-grow: 1;
+    width: 8em;
 }
 
 #results {
@@ -51,7 +81,7 @@ input {
 }
 
 .oj-term {
-    margin: 0 0 8px;
+    margin: 0 0 4px;
 }
 .oj-rm {
     color: var(--text-strong);
@@ -77,3 +107,42 @@ ins.oj-suffix {
     display: block;
 }
 
+@media (min-width: 700px) {
+    #searchcontrols {
+        flex-direction: row;
+        gap: 16px;
+    }
+    #search-oj, #search-en {
+        flex-grow: 1;
+    }
+
+    #results {
+        display: table;
+        border-collapse: collapse;
+    }
+    #results > li {
+        display: table-row;
+    }
+    .oj-term, .en-words {
+        display: table-cell;
+        margin: 0;
+        padding: 8px 16px;
+    }
+    .oj-term {
+        padding-right: 0;
+    } 
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --separator: rgba(255,255,255, 0.2);
+        --bg-color: #000000;
+        --text-reg: rgba(255, 255, 255, 0.87);
+        --text-strong: rgb(255, 255, 255);
+        --text-weak: rgba(255, 255, 255, 0.6);
+    }
+
+    #searchcontrols {
+        background-color: rgba(255,255,255,0.12);
+    }
+}
