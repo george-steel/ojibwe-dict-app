@@ -38,7 +38,7 @@ impl OJWord {
 
 impl DictEntry {
     pub fn en_contains(&self, query: &str) -> bool {
-        self.en.iter().any(|s| {s.contains(query)})
+        self.en.iter().any(|s| {s.to_lowercase().contains(query)})
     }
 }
 

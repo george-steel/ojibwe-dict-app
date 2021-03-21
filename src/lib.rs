@@ -38,7 +38,8 @@ pub fn parse_dict(rawfile: Box<[u8]>) -> Dictionary {
 
 impl Dictionary {
     pub fn search_en(&self, query: &str) -> Vec<&DictEntry> {
-        self.entries.iter().filter(|entry| entry.en_contains(query)).take(100).collect()
+        let ciquery = query.to_lowercase();
+        self.entries.iter().filter(|entry| entry.en_contains(&ciquery)).take(100).collect()
     }
 
     pub fn search_oj(&self, query: &str, search_mode: SearchMode) -> Vec<&DictEntry> {
