@@ -34,11 +34,30 @@ impl OJWord {
             Some(pl) => self.word.contains(query) || (self.word.clone() + &pl).contains(query),
         }
     }
+
+    fn rm(&self) -> String {
+        match &self.suffix {
+            None => self.word.clone(),
+            Some(pl) => self.word.clone() + "+" + &pl,
+        }
+    }
 }
 
 impl DictEntry {
     pub fn en_contains(&self, query: &str) -> bool {
         self.en.iter().any(|s| {s.to_lowercase().contains(query)})
+    }
+
+    pub fn as_tsv(&self) -> String {
+        let mut line = format!("{}\t{}\t{}",
+            self.oj.meta.as_deref().unwrap_or(""),
+            self.oj.rm(),
+            self.syllabics);
+        for def in self.en.iter() {
+            line += "\t";
+            line += def;
+        }
+        line
     }
 }
 
@@ -91,4 +110,24 @@ pub fn parse_dict(raw_dict: String) -> Vec<DictEntry> {
     drop(raw_dict);
     dict.sort_unstable();
     dict
+}
+
+fn order_by_meta(a: &&DictEntry, b: &&DictEntry) -> std::cmp::Ordering {
+    (&a.oj.meta,&a.fiero,a).cmp(&(&b.oj.meta,&b.fiero,b))
+}
+
+pub fn sorted_by_meta(dict: &Vec<DictEntry>) -> Vec<&DictEntry> {
+    let mut grouped: Vec<&DictEntry> = dict.iter().collect();
+    grouped.sort_by(&order_by_meta);
+    grouped
+}
+
+pub fn dict_to_tsv(dict: &Vec<DictEntry>) -> String {
+    let mut out = String::new();
+    let grouped = sorted_by_meta(dict);
+    for entry in grouped {
+        out += &entry.as_tsv();
+        out += "\n";
+    }
+    out
 }

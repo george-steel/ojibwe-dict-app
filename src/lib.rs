@@ -67,6 +67,9 @@ impl Dictionary {
     pub fn size(&self) -> usize {
         self.entries.len()
     }
+    pub fn to_tsv(&self) -> String {
+        dictentry::dict_to_tsv(&self.entries)
+    }
 }
 
 

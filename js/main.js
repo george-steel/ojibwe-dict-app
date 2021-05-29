@@ -3,6 +3,7 @@ import {html, render, nothing} from 'https://unpkg.com/lit-html?module';
 const elem = (id) => document.getElementById(id);
 
 const search_worker = new Worker('js/worker.js');
+console.log("worker", search_worker);
 
 function search_oj() {
     elem('en-query').value = "";
@@ -35,6 +36,10 @@ const resultRows = results => html`${results.map(resultRow)}`;
 
 search_worker.onmessage = e => {
     console.log(e);
+    if (e.data.wholedict) {
+        console.log(e.data.wholedict);
+        return;
+    }
     const rows = resultRows(e.data.searchResults);
     render(rows, elem('results'));
 }

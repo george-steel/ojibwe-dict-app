@@ -3,9 +3,12 @@ importScripts('../pkg/ojibwe_dictsearch.js');
 const mwasm = wasm_bindgen('../pkg/ojibwe_dictsearch_bg.wasm');
 const mrawdict = fetch('../data/dictionary.tsv').then(r => r.arrayBuffer())
 
+mrawdict.then(() => console.log("Fetched the dictionary"));
+
 let dict = null;
 
 Promise.all([mwasm, mrawdict]).then(([wasm, rawdict]) => {
+    console.log(`Begin loading dictionary`);
     dict = wasm_bindgen.parse_dict(new Uint8Array(rawdict));
     console.log(`Loaded the dictionary with ${dict.size()} entries`);
     startSearch();
@@ -35,7 +38,12 @@ function runSearch() {
 
 onmessage = e => {
     console.log(e.data);
-    search = e.data;
-    startSearch();
+    if (e.data.action === "dump") {
+        let buf = dict.to_tsv();
+        postMessage({wholedict: buf});
+    } else {
+        search = e.data;
+        startSearch();
+    }
 };
 

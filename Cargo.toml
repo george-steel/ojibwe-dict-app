@@ -8,8 +8,8 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.37"
-serde = { version = "1.0", features = ["derive"] }
+wasm-bindgen = "0.2.70"
+serde = { version = "1.0.123", features = ["derive"] }
 serde-wasm-bindgen = "0.1.3"
 #phf = { version = "0.8.0", features = ["macros"] }
 array2d = "0.2.1"
@@ -17,10 +17,14 @@ binary-heap-plus = "0.4.1"
 console_error_panic_hook = "0.1.6"
 
 [dependencies.web-sys]
-version = "0.3.4"
+version = "0.3.47"
 features = [
     "console"
 ]
 
 [profile.release]
 lto = true
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-mutable-globals"]
+
