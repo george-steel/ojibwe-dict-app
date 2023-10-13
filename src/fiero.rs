@@ -102,8 +102,6 @@ impl Fiero {
     }
 }
 
-pub const BASE_EDIT_DIST: u32 = 1000;
-
 pub fn edit_distance(xs: &[Fiero], ys: &[Fiero], x_substr_y: Option<u32>) -> u32 {
     let xl = xs.len(); let yl = ys.len();
 

@@ -1,6 +1,8 @@
-import {html, render, nothing} from 'https://unpkg.com/lit-html?module';
+import {html, render, nothing} from './lit-html.min.js';
 
 const elem = (id) => document.getElementById(id);
+const resultsPane = elem("results");
+render(html`<p class="load">Loading…</p>`, resultsPane);
 
 const search_worker = new Worker('js/worker.js');
 console.log("worker", search_worker);
@@ -41,5 +43,5 @@ search_worker.onmessage = e => {
         return;
     }
     const rows = resultRows(e.data.searchResults);
-    render(rows, elem('results'));
+    render(rows, resultsPane);
 }
